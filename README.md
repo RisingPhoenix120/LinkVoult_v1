@@ -25,7 +25,7 @@ LinkVault is a full‑stack Pastebin‑style app for sharing either plain text o
 4. While retrieval expiry, password, ownership, and limits are checked before returning content.
 5. Cleanup job deletes expired or consumed uploads after a certain period (10 mins in his case set as default).
 
-Data flow diagram: `docs/data-flow.mmd` (Mermaid flowchart).
+Data flow diagram: Refer to `docs/data-flow.mmd` and `docs/data-flow.png`.
 
 
 ## Setup
