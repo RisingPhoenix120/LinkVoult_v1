@@ -174,9 +174,3 @@ Stores basic account details:
 - No virus scanning or content moderation is included.
 - Links are hard but not end-to-end encrypted.
 
-
-
-## Notes
-
-- If you change the backend file size limit, make sure to update the frontend limit as well so the UI stays consistent.
-- The `backend/uploads` directory is ignored by Git and is automatically cleaned by the cleanup job.
