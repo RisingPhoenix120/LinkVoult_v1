@@ -1,0 +1,23 @@
+flowchart TD
+  A["User uploads text or file"] --> B["Frontend (React + Vite)"]
+  B -->|FormData| C["API Gateway (Express)"]
+  C --> D{Validation}
+  D -->|Valid| E["Generate slug + delete key"]
+  E --> F{"Text or File?"}
+
+  F -->|Text| G["Store text + metadata in MongoDB"]
+  F -->|File| H["Store file on disk"]
+  H --> I["Store file metadata in MongoDB"]
+
+  G --> J["Return share link + delete key"]
+  I --> J
+
+  J --> K["Viewer accesses link"]
+  K --> L["API validates expiry + password + limits"]
+
+  L -->|Text| M["Return text + increment views"]
+  L -->|File| N["Return download + increment downloads"]
+  L -->|Expired/invalid| O["403 response"]
+
+  M --> P["Cleanup job removes expired or consumed pastes"]
+  N --> P
